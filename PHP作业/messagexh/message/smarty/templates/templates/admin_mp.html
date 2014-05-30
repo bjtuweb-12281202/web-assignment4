@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title>{$title}{$name}</title>
+<meta name="description" content="{$description}">
+<meta name="keywords" content="{$keywords}">
+<meta name="author" content="{$author}">
+<link href="css/css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--最外层主要区域开始-->
+<div id="main">
+<div id="top">
+<!--logo-->
+<div id="logoarea"><a href="index.php"><img src="images/logo.gif" alt="留言本"></a></div>
+<!--菜单-->
+<div id="menu">
+<ul>
+<li><a href="index.php"><img src="images/i2.gif"><br>浏览留言</a></li>
+<li><a href="add.php"><img src="images/i1.gif"><br>签写留言</a></li>
+<li><a href="javascript:if(confirm('您确认要退出吗?'))location='judge.php?zx=zx'"><img src="images/i3.gif"><br>退出管理</a></li>
+<li><a href="admin_mp.php"><img src="images/admin_set.gif"><br>系统设置</a></li>
+<li><a href=""><img src="images/Userlogin_30.gif"><br>网站首页</a></li>
+</ul>
+</div>
+</div>
+<div id="submit">
+
+	<form name="form1" method="post" action="">
+	  <p><img src="images/admin_set.gif" /><img src="images/set.gif" /></p><br />
+	  <div id="submit_set_left"><ul>
+  <li><a href="admin_mp.php">修改管理密码</a>
+  {$set}
+  </ul></div>
+
+<div id="submit_set_right">
+	<label for="admin_pass">{$name}</label><br>
+	<label for="admin_pass">原始密码：</label><input type="text" name="admin_pass" />*<br />
+	<label for="password">新密码：</label><input type="text" name="password" />*<br />
+	<label for="admin_pass2">确认新密码：</label><input type="text" name="admin_pass2" />*<br />
+	<input type="submit" id="sbutton" name="tj" value="　确认修改　">
+	<input name="ac" type="hidden" id="ac" value="modify">
+</div>
+<div class="clear"></div>
+</form>
+</div>
+</div>
+<div id="foot">
+Powered by Mr.Du revised
+</div>
+</body>
+</html>

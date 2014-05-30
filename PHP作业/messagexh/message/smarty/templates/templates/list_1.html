@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title>{$title}{foreach from=$content item=con}{$con.name}{/foreach}</title>
+<meta name="description" content="{$description}">
+<meta name="keywords" content="{$keywords}">
+<meta name="author" content="{$author}">
+<link href="css/css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--最外层主要区域开始-->
+<div id="main">
+<div id="top">
+<!--logo-->
+<div id="logoarea"><a href="index.php"><img src="images/logo.gif" alt="留言本"></a></div>
+<!--菜单-->
+<div id="menu">
+<ul>
+<li><a href="index.php"><img src="images/i2.gif"><br>浏览留言</a></li>
+<li><a href="add.php"><img src="images/i1.gif"><br>签写留言</a></li>
+<li><a href="login_1.php"><img src="images/i3.gif"><br>管理留言</a></li>
+<li><a href=""><img src="images/Userlogin_30.gif"><br>网站首页</a></li>
+</ul>
+</div>
+</div>
+<div id="list">
+<div id="listmain">
+{foreach from=$content item=con}
+<h2>
+<span class="leftarea">
+<img src="images/icon_write.gif" /> <a href=list_1.php?id={$con.id}>{$con.title}</a><font style="color:#999;"> 发表于 {$con.time} ：</font>
+{$query.new}
+</span>
+<span class="midarea">
+作者：{$con.name}
+</span>
+<span class="rightarea">
+
+</span></h2>
+<div class="content">
+</div>
+
+<div class="reply"><p><span class="ftcolor_FF9">{$con.content}<b></span>
+</div>
+{/foreach}
+</div><!--listmain结束-->
+</div><!--list结束-->
+<div class="clear"></div>
+<div id="pages">
+<span class="midarea">
+<a href="hueifu.php?id={$id}"><font color=#cc0000>发表评论：</font></a>
+</span>
+</div>
+<div id="list">
+<div id="listmain">
+{foreach from=$reply item=reply}
+<h2>
+<span class="leftarea">
+<img src="images/icon_write.gif" />{$reply.name_1}</a><font style="color:#999;"> 回复于 {$reply.time_1} ：</font>
+{$query.new}
+</span>
+<span class="midarea">
+</span>
+<span class="rightarea">
+
+</span></h2>
+<div class="content">
+</div>
+
+<div class="reply"><p><span class="ftcolor_FF9">{$reply.counner_1}<b></span>
+</div>
+{/foreach}
+</div><!--listmain结束-->
+</div><!--list结束-->
+<span class="leftarea">
+{$page}
+</span>
+
+</div>
+<div id="foot">
+Powered by Mr.Du revised
+</div>
+</body>
+</html>

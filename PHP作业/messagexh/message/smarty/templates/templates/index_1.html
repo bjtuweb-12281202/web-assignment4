@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title>{$title}{$name}</title>
+<meta name="description" content="{$description}">
+<meta name="keywords" content="{$keywords}">
+<meta name="author" content="{$author}">
+<link href="css/css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--最外层主要区域开始-->
+<div id="main">
+<div id="top">
+<!--logo-->
+<div id="logoarea"><a href="index.php"><img src="images/logo.gif" alt="留言本"></a></div>
+<!--菜单-->
+<div id="menu">
+<ul>
+<li><a href="index.php"><img src="images/i2.gif"><br>浏览留言</a></li>
+<li><a href="add.php"><img src="images/i1.gif"><br>签写留言</a></li>
+<li><a href="javascript:if(confirm('您确认要退出吗?'))location='judge.php?zx=zx'"><img src="images/i3.gif"><br>退出管理</a></li>
+<li><a href="admin_mp.php"><img src="images/admin_set.gif"><br>系统设置</a></li>
+<li><a href=""><img src="images/Userlogin_30.gif"><br>网站首页</a></li>
+</ul>
+</div>
+</div>
+<div id="list">
+<div id="listmain">
+{foreach from=$query item=query}
+<h2>
+<span class="leftarea">
+<img src="images/icon_write.gif" /> <a href=list_1.php?id={$query.id}>{$query.title}</a><font style="color:#999;"> 发表于 {$query.time} ：</font>
+{$query.new}
+</span>
+<span class="midarea">
+作者：{$query.name}
+</span>
+<span class="rightarea">
+<a href="javascript:if(confirm('您确认要删除吗?'))location='delete.php?id={$query.id}'"><img src="images/icon_del.gif" alt="删除此留言" /></a>
+<a href="xiugai.php?id={$query.id}"><img src="images/icon_rn.gif" alt="编辑/回复此留言" /></a>
+</span></h2>
+<div class="content">
+</div>
+
+<div class="reply"><p><span class="ftcolor_FF9">{$query.content}<b></span>
+</div>
+{/foreach}
+</div><!--listmain结束-->
+</div><!--list结束-->
+<div class="clear"></div>
+<div id="pages"> 　留言总数：{$num} 条 {$page}</div>
+<div class="clear"></div>
+<div id="submit">
+<form name="form1" method="post" action="message.php">
+<p><img src="images/i1.gif" /><img src="images/add.gif" /></p><br />
+<label for="user">标题：</label><input type="text" id=username name="title" value="" />*<br />
+<label for="comment">内容：</label><textarea id=content name="neirong"></textarea>*<br />
+<label for="comment">　</label><span>提交前请按Ctrl+C保存留言内容，以免程序出错而丢失！
+</span><br />
+<label for="umum">验证码：</label><input name="unum" type="text" id="unum" size="10">* <img  src=checkNumber.php><br />
+<input type="submit" id="sbutton" value="确  定" /><br /><input name="ac" type="hidden" id="ac" value="add">
+</form>
+</div>
+<!--最外层主要区域结束-->
+</div>
+<div id="foot">
+Powered by Mr.Du revised
+</div>
+</body>
+</html>
